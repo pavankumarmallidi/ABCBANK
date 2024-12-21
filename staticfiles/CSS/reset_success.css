@@ -1,0 +1,66 @@
+/* General Styles for Password Reset Success Page */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* Light background color */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    color: #28a745; /* Green color to signify success */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.login-link {
+    display: inline-block;
+    font-size: 18px;
+    color: #00796b;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 2px solid #00796b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-link:hover {
+    background-color: #00796b;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 24px; /* Slightly smaller heading on smaller screens */
+    }
+
+    p {
+        font-size: 16px; /* Smaller text for better readability on mobile */
+    }
+
+    .login-link {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}

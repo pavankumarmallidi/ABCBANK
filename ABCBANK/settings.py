@@ -11,9 +11,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+DATABASE_URL='postgresql://postgres:SIvrqOehnmxCZBNnnTsWnOemxVVQeGVQ@autorack.proxy.rlwy.net:20495/railway'
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +31,7 @@ SECRET_KEY = 'django-insecure-vg@(z=frfj-v2+o_r!c7cpqi6n0d7av#a@p@0lcv9b-twek2u+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +48,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -74,11 +82,16 @@ WSGI_APPLICATION = 'ABCBANK.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default':dj_database_url.config(default=DATABASE_URL)
 }
 
 
@@ -134,3 +147,5 @@ EMAIL_HOST_USER = 'yoursabcbank@gmail.com'
 EMAIL_HOST_PASSWORD = 'tlrf ujhy psnf bsct'
 EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False 
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
