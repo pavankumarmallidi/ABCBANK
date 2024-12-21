@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<li><a href="{% url 'homepage' %}">Home</a></li>
+<li><a href="{% url 'account:register' %}">Register</a></li>
+{% endblock links %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+{% endblock link %}
+{% block content %}
+<div class="container">
+    <h1>Login Form</h1>
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="username">Username</label>
+    <input type="text" name="username" value="{{ username|default:'' }}">
+    {% if errors.login %}
+        <div class="error">{{ errors.login }}</div>
+    {% endif %}
+<br>    
+    <label for="password">Password</label>
+    <input type="password" name="password">
+    <br>
+    <input type="submit" value="Login"> <br><br>
+    <a href="{% url 'account:forgotpassword' %}" class="forgot-password">Forgot Password?</a>
+</form>
+</div>
+{% endblock content %}

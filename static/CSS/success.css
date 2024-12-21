@@ -1,0 +1,60 @@
+/* Success Message Page Styles */
+
+body {
+    background-color: #f4f7f6; /* Light background color */
+    font-family: 'Arial', sans-serif;
+    color: #333333; /* Dark text color */
+    margin: 0;
+    padding: 0;
+}
+
+#message {
+    max-width: 500px; /* Centered message container */
+    margin: 50px auto; /* Centered vertically with top margin */
+    padding: 30px; /* Padding inside the container */
+    background-color: #ffffff; /* White background for the message */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    text-align: center;
+    line-height: 1.6; /* Better line spacing */
+}
+
+#message h1 {
+    font-size: 28px; /* Large header font */
+    color: #00796b; /* Green color to signify success */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+#message a {
+    display: inline-block; /* Inline-block for the button-like link */
+    text-decoration: none; /* Remove underline */
+    background-color: #00796b; /* Green button */
+    color: #ffffff; /* White text */
+    padding: 10px 20px; /* Button padding */
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px; /* Space above the link */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#message a:hover {
+    background-color: #004d40; /* Darker green on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+@media (max-width: 600px) {
+    #message {
+        margin: 20px 10px; /* Reduced margin for smaller screens */
+        padding: 20px; /* Reduced padding for smaller screens */
+    }
+
+    #message h1 {
+        font-size: 24px; /* Smaller heading for mobile */
+    }
+
+    #message a {
+        font-size: 14px; /* Slightly smaller font for the button */
+        padding: 8px 15px; /* Reduced padding for mobile */
+    }
+}

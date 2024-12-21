@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<li><a href="{% url 'account:login' %}">Login</a></li>
+<li><a href="{% url 'account:register' %}">Register</a></li>
+{% endblock links %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/homepage.css' %}">
+<script src="{% static 'JS/homepage.js' %}" defer></script>
+{% endblock link %}
+
+{% block content %}
+<div id="hero">
+    <h1>Welcome to ABC BANK</h1>
+    <p>Your success is our mission. We provide top-notch services to help you grow.</p>
+    <a href="{% url 'account:register' %}" class="btn">Register</a>
+</div>
+
+<div id="about">
+    <h2>About Us</h2>
+    <p>
+        At XYZ Bank, we have been committed to serving our customers with integrity and excellence for over a decade.
+    </p>
+    <p>
+        Our team of financial experts is dedicated to providing innovative banking solutions tailored to meet your needs.
+    </p>
+    <p>
+        We prioritize your financial well-being and strive to create a secure and convenient banking experience.</p>
+  
+</div>
+
+<div id="services">
+    <h2>Our Services</h2>
+    <div class="service-item">
+        <h3>Withdraw Account</h3>
+        <p>We provide a seamless process for withdrawing funds from your account, ensuring quick and secure
+            transactions.</p>
+    </div>
+    <div class="service-item">
+        <h3>Deposit Amount</h3>
+        <p>Our platform allows you to easily deposit funds into your account with various payment options available.</p>
+    </div>
+    <div class="service-item">
+        <h3>Transactions</h3>
+        <p>We offer a comprehensive transaction service that allows you to manage and track your financial activities
+            effortlessly.</p>
+    </div>
+</div>
+
+<div id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or would like to work with us, please reach out!</p>
+
+    <h3>Get in Touch</h3>
+    <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+    <p><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
+
+    <h3>Follow Us</h3>
+    <p>Stay connected with us on social media:</p>
+    <ul>
+        <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+        <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+        <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+    </ul>
+
+</div>
+{% endblock content %}

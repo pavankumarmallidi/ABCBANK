@@ -1,0 +1,59 @@
+{% extends 'base.html' %}  <!-- Assuming your base template is named base.html -->
+{% load static %}
+{% block title %}
+Transaction History
+{% endblock title %}
+
+{% block link %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<link rel="stylesheet" href="{% static 'CSS/transaction.css' %}">  <!-- Optional: Add a specific CSS file for transactions -->
+{% endblock link %}
+
+{% block links %}
+<li><a href="{% url 'account:lobby' %}">Lobby</a></li>
+<li><a href="{% url 'account:logout' %}">Logout</a></li>
+{% endblock links %}
+
+{% block content %}
+<div id="container">
+<h1>Transaction History</h1>
+<p class="balance">Username : <strong>{{ request.user.username|upper }}</strong></p>
+<p class="balance">Your Account Balance : <strong>₹{{ account_balance }}</strong></p>
+<table>
+    <thead>
+        <tr>
+            <th>Time of Transaction</th>
+            <th>Transaction Type</th>
+            <th>Sender Username</th>
+            <th>Amount Deducted</th>
+            <th>Receiver's Name</th>
+            <th>Amount Received</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.time_of_transaction }}</td>
+            <td>{{ transaction.transaction_type }}</td>
+            <td>{{ transaction.sender_username }}</td>
+            <td>{{ transaction.amount_deducted }}</td>
+            <td>{{ transaction.receiver_name }}</td>
+            <td>{{ transaction.amount_received }}</td>
+            <td>{{ transaction.balance }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No transactions available.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+</div>
+
+
+
+{% endblock content %}

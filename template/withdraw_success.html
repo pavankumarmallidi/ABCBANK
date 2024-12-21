@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/success.css' %}">
+{% endblock link %}
+
+{% block links %}
+<li><a href="{% url 'account:lobby' %}">Login</a></li>
+{% endblock links %}
+{% block content %}
+<div id="message">
+    Withdraw Successfull <br>
+    Your account has been deducted from your account <br>
+    <a href="{% url 'account:lobby' %}">Click here to enter the lobby</a>
+
+
+</div>
+
+{% endblock content %}

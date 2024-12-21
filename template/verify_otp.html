@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<li><a href="{% url 'homepage' %}">Home</a></li>
+<li><a href="{% url 'account:register' %}">Register</a></li>
+{% endblock links %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/forgotpassword.css' %}">
+{% endblock link %}
+
+{% block content %}
+<div class="container">
+    <h1>Verify OTP</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="otp">Enter the OTP sent to your email:</label>
+        <input type="text" name="otp" required>
+        <div class="error">{{ errors }}</div>
+
+        <br>
+        
+        <input type="submit" value="Verify OTP">
+    </form>
+    <br>
+    <a href="{% url 'account:login' %}" class="forgot-password">Back to Login</a>
+</div>
+{% endblock content %}

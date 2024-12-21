@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+<li><a href="{% url 'homepage' %}">Home</a></li>
+<li><a href="{% url 'account:login' %}">Login</a></li>
+
+{% endblock links %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/register.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+<div class="container">
+    <h1>Registration Form</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="">First Name</label>
+        <input type="text" name="first_name" value="{{ firstname|default:'' }}">
+
+
+        <label for="">Last Name</label>
+        <input type="text" name="last_name" value="{{ lastname|default:'' }}">
+
+   
+
+        <label for="">Username</label>
+        <input type="text" name="username" value="{{ username|default:'' }}">
+        {% if errors.username %}
+        <span class="error">{{ errors.username }}</span>
+        {% endif %}
+  
+
+        <label for="">Email</label>
+        <input type="email" name="email" value="{{ email|default:'' }}">
+        {% if errors.email %}
+        <span class="error">{{ errors.email }}</span>
+        {% endif %}
+    
+
+        <label for="">Password</label>
+        <input type="password" name="password">
+        {% if errors.password %}
+        <span class="error">{{ errors.password }}</span>
+        {% endif %}
+      
+
+        <label for="">Confirm Password</label>
+        <input type="password" name="confirm_password"><br>
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+{% endblock content %}

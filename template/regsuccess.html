@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/regsuccess.css' %}">
+{% endblock link %}
+
+{% block links %}
+<li><a href="{% url 'account:login' %}">Login</a></li>
+{% endblock links %}
+{% block content %}
+<div id="message">
+    Registraion Successfull <br>
+    Your account has been created <a href="{% url 'account:login' %}">Click here to login</a>
+</div>
+
+{% endblock content %}

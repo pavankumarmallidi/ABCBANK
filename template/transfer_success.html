@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/success.css' %}">
+{% endblock link %}
+
+{% block links %}
+<li><a href="{% url 'account:lobby' %}">Login</a></li>
+{% endblock links %}
+{% block content %}
+<div id="message">
+    <p>Transfer Successful</p>
+    <p>You have successfully sent money.</p>
+    <p><a href="{% url 'account:lobby' %}">Click here to enter the lobby</a></p>
+</div>
+
+{% endblock content %}

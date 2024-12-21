@@ -1,0 +1,93 @@
+
+.container {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #004d40;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #00796b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #004d40;
+    margin-bottom: 5px;
+}
+
+select, input[type="number"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #00796b;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input[type="number"]:focus {
+    border-color: #004d40;
+}
+
+.error p {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    background-color: #00796b;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #004d40;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

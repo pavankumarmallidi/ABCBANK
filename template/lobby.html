@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<li><a href="{% url 'account:logout' %}">Logout</a></li>
+{% endblock links %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'CSS/lobby.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+
+<div class="container">
+    <h1>Welcome, {{ request.user.username|upper }}!</h1>
+    <p id="balance">Your account balance is: <strong>₹{{ account_balance }}</strong></p>
+
+    <div class="options">
+        <h2>Account Options</h2>
+        <div class="card-container">
+            <div class="card">
+                <a href="{% url 'account:withdraw' %}" class="btn">Withdraw</a>
+                <p>Withdraw funds from your account quickly and easily.</p>
+            </div>
+            <div class="card">
+                <a href="{% url 'account:deposit' %}" class="btn">Deposit</a>
+                <p>Deposit cash or checks into your account securely.</p>
+            </div>
+            <div class="card">
+                <a href="{% url 'account:transaction' %}" class="btn">Transactions</a>
+                <p>View your recent transactions and account history.</p>
+            </div>
+            <div class="card">
+                <a href="{% url 'account:transfer' %}" class="btn">Send Money</a>
+                <p>Transfer money to other accounts or individuals easily.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

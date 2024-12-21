@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<li><a href="{% url 'homepage' %}">Home</a></li>
+<li><a href="{% url 'account:login' %}">Login</a></li>
+{% endblock links %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'success.css' %}">
+{% endblock link %}
+
+{% block content %}
+<div class="container">
+    <h1>Password Reset Successful</h1>
+    <p>Your password has been reset successfully. You can now log in with your new password.</p>
+    <a href="{% url 'account:login' %}" class="login-link">Back to Login</a>
+</div>
+{% endblock content %}
